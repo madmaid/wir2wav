@@ -1,0 +1,16 @@
+[package]
+name = "wir2wav"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["cli"]
+convert_to_wav = ["dep:hound"]
+cli = ["dep:clap", "dep:wild", "dep:log", "convert_to_wav"]
+
+[dependencies]
+byteorder = "1.4.3"
+clap = { version = "4.3.1", features = ["derive", "cargo"], optional = true }
+hound = { version = "3.5.0", optional = true }
+log = { version = "0.4.19", optional = true }
+wild = { version = "2.1.0", optional = true }
